@@ -27,7 +27,21 @@ void decode_steganography(int image_data[], int data_size, std::string key) {
      *   Remember to always stay within the array bounds!
      * - If the value is 0, stop the loop. Otherwise, cast the value to a `char` and print it.
      */
+    int kL = key.length();           
+    int kI = 0;                  
 
+    while (currentIndex < data_size) {
+        int secret_value = image_data[currentIndex];  
+
+        if (secret_value == 0) 
+            {break;}       
+
+        std::cout << (char)secret_value;   
+
+        int jd = (int)key[kI % kL];
+        currentIndex += jd;
+
+        kI++;
 }
 
 
